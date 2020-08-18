@@ -12,7 +12,7 @@ module.exports = async () => {
     if (!count) {
       for (let i = 0; i < 10; i++) {
         let item = {
-          email: faker.internet.email(faker.name.findName()),
+          email: faker.internet.email(faker.lorem.words(1)),
           password: "657216as",
           name: faker.name.findName(),
           description: faker.lorem.paragraph(4),
