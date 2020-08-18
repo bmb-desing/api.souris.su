@@ -2,4 +2,5 @@ node_modules
 .env
 system/cache
 system/logs
+database/seeder
 public
