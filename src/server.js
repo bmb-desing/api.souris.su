@@ -1,4 +1,4 @@
-const express = require("express");
+const app = require("express")();
 const dotenv = require("dotenv");
 const bodyParser = require("body-parser");
 const errorhandler = require("errorhandler");
@@ -15,9 +15,7 @@ const passport = require("./middleware/passport");
 
 dotenv.config();
 
-const app = express();
-
-//app.use(passport.initialize());
+app.use(passport.initialize());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(helmet());
@@ -34,6 +32,6 @@ if (process.env.NODE_ENV !== "production") {
   require("../database/seeder/index")();
 }
 
-app.listen(process.env.PORT, () => {
+const server = app.listen(process.env.PORT, () => {
   console.log(`Сервер запущен на ${process.env.PORT} порту`);
 });
